@@ -1,11 +1,11 @@
-// As a developer, I want to make at least three commits. (to gitHub)
+// X As a developer, I want to make at least three commits. (to gitHub)
 // XXX As a user, I want a destination to be randomly selected for my day trip. 
 // XXX As a user, I want a restaurant to be randomly selected for my day trip.
 // XXX As a user, I want a mode of transportation to be randomly selected for my day trip.
 // XXX As a user, I want a form of entertainment to be randomly selected for my day trip.
-// As a user, I want to be able to randomly re-select a destination, restaurant, mode of transportation, and/or form of entertainment if I don’t like one or more of those things.
-// As a user, I want to be able to confirm that my day trip is “complete” once I like all of the random selections.
-// As a user, I want to display my completed trip in the console.
+// XXX As a user, I want to be able to randomly re-select a destination, restaurant, mode of transportation, and/or form of entertainment if I don’t like one or more of those things.
+// XXX As a user, I want to be able to confirm that my day trip is “complete” once I like all of the random selections.
+// XXX As a user, I want to display my completed trip in the console.
 // As a developer, I want all of my functions to have a Single Responsibility. Remember, each function should do just one thing!
     
 
@@ -48,25 +48,37 @@ let randomRestaurantSC = dataSC.restaurant[Math.floor(Math.random() * dataSC.res
 //The Code
 let randomDestination = determineRandomLocation();
 let randomLocal;
-if(randomDestination === "Gold Saucer"){
-    randomLocal = dataGS;
-}
-else if(randomDestination === "The Normandy"){
-    randomLocal = dataNorm;
-}
-else{
-    randomLocal = dataSC;
-}
+    if(randomDestination === "Gold Saucer"){
+        randomLocal = dataGS;
+    }
+    else if(randomDestination === "The Normandy"){
+        randomLocal = dataNorm;
+    }
+    else{
+        randomLocal = dataSC;
+    }
 
-let randomTrans = determineRandomTransportation();
-let randomEnt = determineRandomEntertainment();
-let randomRest = determineRandomRestaurant();
+    let randomTrans = determineRandomTransportation();
+    let randomEnt = determineRandomEntertainment();
+    let randomRest = determineRandomRestaurant();
 
-console.log(randomTrans);
-console.log(randomEnt);
-console.log(randomRest);
-
-
+    alert(`${randomDestination} ${randomTrans} ${randomEnt} ${randomRest}`);
+    
+let userChoice = confirm("We hope you like the itinerary that we here are Travel Fantasy have created for you!  If you're happy with all of our choices, click the 'OK' button below.  If you aren't okay with them...we don't know what's wrong with you.  But go ahead and click 'Cancel' and you will have the chance to change any part of the trip you'd like to.");
+    if(userChoice === true){
+        happyWithTrip();
+        console.log(`${randomDestination} ${randomTrans} ${randomEnt} ${randomRest}`);
+    }
+    else{
+        notHappyWithTrip();
+        let newItinerary = confirm(`Here is your new travel itinerary: ${randomDestination} ${randomTrans} ${randomEnt} ${randomRest}.  If you like this better than before, click "OK".  If you still want to try to adjust our already perfect vacation, click "Cancel" again.`)
+            if(newItinerary === true){
+            happyWithTrip();
+            }
+            else{
+            notHappyWithTrip()
+            }
+    }
 
 
 //the functions
@@ -86,43 +98,43 @@ function determineRandomRestaurant(){
     let randomRest = randomLocal.restaurant[Math.floor(Math.random() * randomLocal.restaurant.length)];
     return randomRest;
 }
+function happyWithTrip(){
+    alert(`You confirm that you are going to ${randomDestination} ${randomTrans} ${randomEnt} ${randomRest}.  We hope you enjoy your trip!  Do not forget to rate and review "Travel Fantasy" BEFORE your trip!`);
+    
+    alert("Travel Fantasy is not to be held liable or responsible for any damages, injuries, or claims made during travel.  Enjoy.")
+}
+function notHappyWithTrip(){
+    let changeThings = prompt('Please input the part of the trip you would like to change.  You can select the destination itself, creating a whole new itinerary for yourself or you can try out a new "transportation", "entertainment", or "restaurant".');
+    if(changeThings.toLowerCase() === "transportation"){
+        let newTrans = changeYourMindTrans();
+        randomTrans = newTrans;
+        return randomTrans;
+    }
+    else if(changeThings.toLowerCase() === "entertainment"){
+        let newEnt = changeYourMindEnt();
+        let randomEnt = newEnt;
+        return randomEnt;
+    }
+    else if(changeThings.toLowerCase() === "restaurant"){
+        let newRest = changeYourMindRest();
+        let randomRest = newRest;
+        return randomRest;
+    }
+    else{
+        alert('Please type in "transportation", "entertainment", or "restaurant" (We here are Travel Fantasy know that these can be difficult words to spell.)');
+        notHappyWithTrip();
+    }
+}
 
-// function determineRandomTransportation(){
-//     let randomTrans;
-//     if(randomDestination === "Gold Saucer"){
-//         randomTrans = randomTransportationGS;
-//     }
-//     else if(randomDestination === "The Normandy"){
-//         randomTrans = randomTransportationNorm;
-//     }
-//     else{
-//         randomTrans = randomTransportationSC;
-//     }
-//     return randomTrans;
-// }
-// function determineRandomEntertainment(){
-//     let randomEnt;
-//     if(randomDestination === "Gold Saucer"){
-//         randomEnt = randomEntertainmentGS;
-//     }
-//     else if(randomDestination === "The Normandy"){
-//         randomEnt = randomEntertainmentNorm;
-//     }
-//     else{
-//         randomEnt = randomEntertainmentSC;
-//     }
-//     return randomEnt;
-// }
-// function determineRandomRestaurant(){
-//     let randomRest
-//     if(randomDestination === "Gold Saucer"){
-//         randomRest = randomRestaurantGS;
-//     }
-//     else if(randomDestination === "The Normandy"){
-//         randomRest = randomRestaurantNorm;
-//     }
-//     else{
-//         randomRest = randomRestaurantSC;
-//     }
-//     return randomRest;
-// }
+function changeYourMindTrans(){
+        let newTrans = determineRandomTransportation();
+        return newTrans;
+}
+function changeYourMindEnt(){
+    let newEnt = determineRandomEntertainment();
+    return newEnt;
+}
+function changeYourMindRest(){
+    let newRest = determineRandomRestaurant();
+    return newRest;
+}
