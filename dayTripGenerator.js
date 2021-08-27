@@ -14,7 +14,6 @@ let destinations = ["Gold Saucer", "The Normandy", "Sword Coast"];
 //Gold Saucer Data (GS) - XXX edit to sound better
 let chocoboColors = ["yellow", "blue", "green", "black", "gold", "pink", "white"];
 let randomChocoboColor = chocoboColors[Math.floor(Math.random() * chocoboColors.length)];
-
 let dataGS = {
     name: "You're going to the Gold Saucer!",
     transportation: ["You're getting there by " + randomChocoboColor + " Chocobo!", "If Cloud and his party were able to hoof it over the entire planet, you're also getting there by walking.", "The Highwind is ready and available to take you there.", "You get there by buggy!  You're lucky - Cloud and his party had to work hard for their buggy!"],
@@ -40,21 +39,24 @@ let dataSC = {
 
 let randomDestination;
 let randomLocal;
+let userChoice
+let destinationNames;
+let randomTrans;
+let randomEnt;
+let randomRest;
+
 function getStarted(){
     randomDestination = determineRandomLocation();
     randomLocal = randomDestination;
     return randomLocal;
 }
-getStarted();
-assignObjects();
-let destinationNames;
-let randomTrans;
-let randomEnt;
-let randomRest;
-let userChoice
-assignOtherRandomVariables();
-alert(`${destinationNames} ${randomTrans} ${randomEnt} ${randomRest}`);
-confirmTrip();
+function onClick(){
+    getStarted();
+    assignObjects();
+    assignOtherRandomVariables();
+    alert(`${destinationNames} ${randomTrans} ${randomEnt} ${randomRest}`);
+    confirmTrip();
+}
 
 function confirmTrip(userChoice){
     userChoice = confirm(`We hope you like the itinerary that we here are Travel Fantasy have created for you!  If you're happy with all of our choices, click the 'OK' button below.  If you aren't okay with them...we don't know what's wrong with you.  But go ahead and click 'Cancel' and you will have the chance to change any part of the trip you'd like to.\n\nYour Ininerary:\n${destinationNames} ${randomTrans} ${randomEnt} ${randomRest}`);
@@ -129,7 +131,7 @@ let newRest = determineRandomRestaurant();
 return newRest;
 }
 function notHappyWithTrip(){
-    let changeThings = prompt('Please input the part of the trip you would like to change.  You can select the destination itself, creating a whole new itinerary for yourself or you can try out a new "transportation", "entertainment", or "restaurant".');
+    let changeThings = prompt('Please input the part of the trip you would like to change.  You can select the destination itself, creating a whole new itinerary for yourself or you can try out a new "destination" "transportation", "entertainment", or "restaurant".');
     if(changeThings.toLowerCase() === "destination"){
         getStarted();
         assignObjects();
@@ -144,18 +146,18 @@ function notHappyWithTrip(){
     }
     else if(changeThings.toLowerCase() === "entertainment"){
         let newEnt = changeYourMindEnt();
-        let randomEnt = newEnt;
+        randomEnt = newEnt;
         userCoice = undefined;
         return randomEnt;
     }
     else if(changeThings.toLowerCase() === "restaurant"){
         let newRest = changeYourMindRest();
-        let randomRest = newRest;
+        randomRest = newRest;
         userChoice = undefined;
         return randomRest;
     }
     else{
-        alert('Please type in "transportation", "entertainment", or "restaurant" (We here are Travel Fantasy know that these can be difficult words to spell.)');
+        alert('Please type in "destination", "transportation", "entertainment", or "restaurant" (We here are Travel Fantasy know that these can be difficult words to spell.)');
     }
     return userChoice;
 }

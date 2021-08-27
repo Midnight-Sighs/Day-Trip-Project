@@ -1,0 +1,121 @@
+/* for reference - SC = Sword Coast, Norm = Normandy, GS = Gold Saucer */
+
+html{
+    background:url("universe.jpg");
+    background-size:cover;
+}
+
+body{
+    display: grid;
+    grid-template-areas:
+    "header header header"
+    "main main main"
+    "SC Norm GS"
+    "footer footer footer";
+    grid-template-rows: 200px 1fr 600px 100px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1vw;
+}
+
+header{
+    grid-area: header;
+    height: 1fr;
+    width: 4fr;
+    padding: 50px;
+    background-color: rgba(240, 230, 140, 0.5);
+    border: double 15px rgba(255, 217, 0, 0.5); 
+    border-radius: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-variant: small-caps;
+    font-weight: 600;
+    font-size: 65px;
+    text-align: center;
+    color: black;
+}
+
+p{
+    text-align: justify;
+}
+
+#pTitle{
+    color: white;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-variant: small-caps;
+    text-align: center;
+}
+
+.bodymain{
+    grid-area: main;
+    height: 1fr;
+    width: 4fr;
+    padding: relative;
+    color: rgb(255, 187, 0);
+    background-color: rgb(0, 0, 0, .6);
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-variant: small-caps;
+}
+#picture{ 
+    height: 300px;
+    width: 300px;
+    object-fit:scale-down;
+ }
+
+.divSC{
+    grid-area: SC;
+    height: 1fr;
+    width: 1fr;
+    background-color: rgba(50, 0, 0, 0.75);
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-variant: small-caps;
+}
+
+.divNorm{
+    grid-area: Norm;
+    height:1fr;
+    width: 1fr;
+    background-color: rgb(50, 0, 0, .75);
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-variant: small-caps;
+}
+
+.divGS{
+    grid-area: GS;
+    height:1fr;
+    width: 1fr;
+    background-color: rgb(50, 0, 0, .75);
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-variant: small-caps;
+}
+
+#pFooter{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-variant: small-caps;
+    color: white;
+    text-align: center;
+}
+footer{
+    grid-area: footer;
+    height: 1fr;
+    width: 4fr;
+    color: rba(255, 187, 0);
+    font-size: 10px;
+}
+
+#button{
+    height: 50px;
+    width: 300px;
+    background-color: rgba(255, 217, 0, 0.5);
+    border: solid 3px rgb(255, 187, 0);
+    border-radius: 5px;
+}
