@@ -1,9 +1,9 @@
 // XXX As a developer, I want to make at least three commits. (to gitHub)
-// XXX As a user, I want a destinationNames to be randomly selected for my day trip. 
+// XXX As a user, I want a destination to be randomly selected for my day trip. 
 // XXX As a user, I want a restaurant to be randomly selected for my day trip.
 // XXX As a user, I want a mode of transportation to be randomly selected for my day trip.
 // XXX As a user, I want a form of entertainment to be randomly selected for my day trip.
-//  As a user, I want to be able to randomly re-select a XXXdestination, XXXrestaurant, XXXmode of transportation, and/or XXXform of entertainment if I don’t like one or more of those things.
+// XXXAs a user, I want to be able to randomly re-select a XXXdestination, XXXrestaurant, XXXmode of transportation, and/or XXXform of entertainment if I don’t like one or more of those things.
 // XXX As a user, I want to be able to confirm that my day trip is “complete” once I like all of the random selections.
 // XXX As a user, I want to display my completed trip in the console.
 // X??As a developer, I want all of my functions to have a Single Responsibility. Remember, each function should do just one thing!
@@ -16,7 +16,7 @@ let chocoboColors = ["yellow", "blue", "green", "black", "gold", "pink", "white"
 let randomChocoboColor = chocoboColors[Math.floor(Math.random() * chocoboColors.length)];
 let dataGS = {
     name: "You're going to the Gold Saucer!",
-    transportation: ["You're getting there by " + randomChocoboColor + " Chocobo!", "If Cloud and his party were able to hoof it over the entire planet, you're also getting there by walking.", "The Highwind is ready and available to take you there.", "You get there by buggy!  You're lucky - Cloud and his party had to work hard for their buggy!"],
+    transportation: ["You're getting there by " + randomChocoboColor + " Chocobo!", "You're getting there by walking.  If Cloud and his party were able to hoof it over the entire world, you'll be just fine.", "You'll be getting there via the Highwind.  It's ready and available to pick you up.", "You'll be getting there by buggy!  You're lucky - Cloud and his party had to work hard for their buggy!"],
     entertainment: ["While you're there, you're going to the Chocobo Races! Did you bring your own or are you just betting?", "While you're there, you're going to Battle Square.  Ready for a fight?", "While you're there, you're going to Speed Square. Buckle up for the ride!", "While you're there, you get to enjoy Wonder Square.  We'll even throw in some free gil to play a few games with!", "While you're there, you're going to the Ghost Square! Spoooooookky!", "While you're there, your entertainment will be at Event Square.  Hope you appreciate theatre!", "While you're there, you get to go to Round Square! Hop on the gondola and relax."],
     restaurant: ["For a meal, we got you a coupon for the food cart.  They don't take reservations, but the food is great!", "For a meal, we got you a reservation to Chocobo Wings.  Whether they use real or imitation chocobo meat, we don't know!  Try it and see!", "For a meal, we got you a reservation at Slum Dogs! After the fall of Sector 7's plate, three industrious friends came to the Gold Saucer and founded Slum Dogs - their recipes are pretty resourceful!"]
 }
@@ -24,9 +24,9 @@ let dataGS = {
 //Normandy Data (norm) - XXX edit to sound better
 let dataNorm = {
     name: "You are going to be traveling to The Normandy.",
-    transportation:["You're in luck!  The Normandy allows for direct Dimensional Wormhole right to the ship!", "You need to get there by a small shuttle, meeting with the Normandy in the depths of space. ", "You need to wait at the Citadel for the ship to come pick you up."],
-    entertainment: ["While you're there, you will be joing Garrus for some shooting!", "While you're there, you'll see that there's more to the ship than you knew with a ship tour.", "While you're there, you'll enjoy an intense wrestle with Grunt!", "Just like Commander Shepard, you're going to converse with the ship crew all day long.", "You will be spending some time in the Commander's Quarters for your entertainment."],
-    restaurant:["We made you a reservation for you to eat at the ship Galley.  The food isn't glorified, but it's edible and will fill you up!", "For your meal, you will be eating in Miranda's office.  She's new to cooking and we haven't tried it, but we're sure you'll enjoy.", "We made you a reservation at a fancy restaurant in the Citadel.  Beware that the prices are steep, but we've given you a 2% off coupon!", "We made sure to tell the crew to get you a Super Sludge for your meal!  It doesn't sound like much but when the galley is down or the ship is in active status, a filling and nutrious meal is always available!"]
+    transportation:["You're getting to the Normandy via direct dimensional wormhole.  You're in luck that they have one ready and available for you!", "You're getting to the Normandy by a small shuttle, meeting up in the depths of space. ", "You're getting to the Normandy via patience.  We'll send you to the Citadel and you have to wait for the Normandy to come by and pick you up."],
+    entertainment: ["While you're there, you will be joing Garrus for some shooting!", "While you're there, you'll see that there's more to the ship than you knew with a ship tour.", "While you're there, you'll enjoy an intense wrestle with Grunt!", "While you're there, you will be spending an obscene amount of time just conversing with the crew.  All your entertainment in one place.", "While you're there, you'll be spending some entertainment time in the Commander's quarters.  Hey, there are lots of models and pets to view!"],
+    restaurant:["We made a reservation for you to eat at the ship Galley.  The food isn't glorified, but it's edible and will fill you up!", "We made you a reservation with one of the crew as your personal chef. You will be eating in Miranda's office.  She's new to cooking and we haven't tried it, but we're sure you'll enjoy it.", "We made you a reservation at a fancy restaurant in the Citadel.  Beware that the prices are steep, but we've given you a 2% off coupon!", "We made sure to tell the crew to get you a Super Sludge for your meal!  It doesn't sound like much but when the galley is down or the ship is in active status, a filling and nutrious meal is always available!"]
 }
 
 //Sword Coast Data (SC) - XXX edit to sound better
@@ -116,7 +116,7 @@ function determineRandomRestaurant(){
 }
 function happyWithTrip(){
     alert(`You confirm that you like your vacation options!  \n\nWe hope you enjoy your trip!  Do not forget to rate and review "Travel Fantasy" BEFORE your trip! \n\nTravel Fantasy is not to be held liable or responsible for any damages, injuries, or claims made during travel.  Enjoy!`)
-    console.log(`${destinationNames} ${randomTrans} ${randomEnt} ${randomRest}`);
+    console.log(`Destination: ${destinationNames}\n\nTransportation: ${randomTrans}\n\nEntertainment: ${randomEnt}\n\nRestaurant: ${randomRest}\n\nPrice of this trip in Gil: 1,564,003 GP\nPrice of this trip in credits: 978,000\nPrice of this trip in Platinum Pieces: 2,305,016PP`);
 }
 function changeYourMindTrans(){
     let newTrans = determineRandomTransportation();
